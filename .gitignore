@@ -1,0 +1,4 @@
+/public/static/categories/*
+/public/static/products/*
+db.sqlite3
+__pycache__/

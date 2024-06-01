@@ -1,0 +1,3 @@
+SECRET_KEY= settings secret key here
+EMAIL_HOST_USER= email to send confirmation token here
+EMAIL_HOST_PASSWORD=

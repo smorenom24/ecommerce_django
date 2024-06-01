@@ -79,10 +79,15 @@ def activate_email(request, email_token):
 
 
 def cart(request):
-    cart_to_buy = Cart.objects.get(
-        is_paid=False,
-        user=request.user)
-    cart_items = CartItems.objects.filter(cart=cart_to_buy)
+    cart_to_buy = None
+    cart_items = None
+    try:
+        cart_to_buy = Cart.objects.get(
+            is_paid=False,
+            user=request.user)
+        cart_items = CartItems.objects.filter(cart=cart_to_buy)
+    except Exception as e:
+        print(e)
     if request.method == "POST":
         total_amount = cart_to_buy.get_cart_total()
         coupon_post = request.POST.get('coupon')
